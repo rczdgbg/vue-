@@ -62,6 +62,9 @@ axios.interceptors.response.use(
   },
   error => {
     console.log(error);
+    Message.error({
+      content: "网络错误请稍后再试！"
+    });
     store.commit("setLoading", false);
     return Promise.reject(error);
   }
